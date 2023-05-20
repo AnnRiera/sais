@@ -1,0 +1,17 @@
+{
+  "name": "sais",
+  "version": "1.0.0",
+  "description": "This is a only-for-study-purpose project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "cypress"
+  ],
+  "author": "Ana Riera",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^12.12.0"
+  }
+}
