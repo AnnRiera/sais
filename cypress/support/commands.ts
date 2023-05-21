@@ -23,3 +23,18 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+export {}
+declare global {
+  // eslint-disable-next-line @typescript-eslint/no-namespace
+  namespace Cypress {
+    interface Chainable {
+      navBar(label: string): Cypress.Chainable<JQuery<HTMLElement>>;
+    }
+  }
+}
+ 
+
+Cypress.Commands.add('navBar', (label: string) => {
+    return cy.get('nav[class="bg-white flex items-center z-[400] lg:z-[1000] fixed lg:relative shadow-selectDragable w-full h-12 sm:h-14 md:h-16 lg:h-[70px] lg:px-14 justify-around  top-0"]')
+      .contains(label);
+});

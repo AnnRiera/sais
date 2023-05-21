@@ -1,5 +1,5 @@
-import { defineConfig } from 'cypress'
-import 'dotenv/config'
+import { defineConfig } from 'cypress';
+import 'dotenv/config';
 
 export default defineConfig({
   e2e: {
@@ -11,7 +11,7 @@ export default defineConfig({
     viewportWidth: 1920,
     viewportHeight: 1080,
     env: { 
-      ...process.env
+      ...process.env,
     }
   },
 })
