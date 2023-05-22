@@ -12,6 +12,8 @@ export default defineConfig({
     viewportHeight: 1080,
     env: { 
       ...process.env,
-    }
+    },
+    experimentalMemoryManagement: true,
+    video: false,
   },
 })

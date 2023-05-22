@@ -28,13 +28,27 @@ declare global {
   // eslint-disable-next-line @typescript-eslint/no-namespace
   namespace Cypress {
     interface Chainable {
+      nav(): Cypress.Chainable<JQuery<HTMLElement>>;
       navBar(label: string): Cypress.Chainable<JQuery<HTMLElement>>;
+      navBarMenu(label: string): Cypress.Chainable<JQuery<HTMLElement>>;
     }
   }
 }
- 
+
+Cypress.Commands.add('nav', () => {
+  return cy
+    .get('nav[class="bg-white flex items-center z-[400] lg:z-[1000] fixed lg:relative shadow-selectDragable w-full h-12 sm:h-14 md:h-16 lg:h-[70px] lg:px-14 justify-around  top-0"]');
+});
 
 Cypress.Commands.add('navBar', (label: string) => {
-    return cy.get('nav[class="bg-white flex items-center z-[400] lg:z-[1000] fixed lg:relative shadow-selectDragable w-full h-12 sm:h-14 md:h-16 lg:h-[70px] lg:px-14 justify-around  top-0"]')
+    return cy
+      .nav()
       .contains(label);
+});
+
+Cypress.Commands.add('navBarMenu', (label: string) => {
+  return cy
+    .navBar(label)
+    .click()
+    .get('div[class="h-16 hidden lg:block transition-all duration-300 overflow-hidden rounded-b-2xl shadow-selectDragable"]');
 });

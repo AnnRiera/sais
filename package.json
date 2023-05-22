@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "npm run prepare",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "headless": "npx cypress run --headless"
   },
   "keywords": [
     "cypress"
