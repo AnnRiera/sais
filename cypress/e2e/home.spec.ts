@@ -24,7 +24,6 @@ describe('Home page', () => {
                 .find('a')
                 .then((newOptions) => {
                     cy.wrap(newOptions[0]).click();
-                    cy.go('back');
                 });
         });
 
@@ -33,7 +32,6 @@ describe('Home page', () => {
                 .find('a')
                 .then((newOptions) => {
                     cy.wrap(newOptions[1]).click();
-                    cy.go('back');
                 });
         });
 
@@ -42,7 +40,6 @@ describe('Home page', () => {
                 .find('a')
                 .then((newOptions) => {
                     cy.wrap(newOptions[2]).click();
-                    cy.go('back');
                 });
         });
 
@@ -51,7 +48,6 @@ describe('Home page', () => {
                 .find('a')
                 .then((newOptions) => {
                     cy.wrap(newOptions[3]).click();
-                    cy.go('back');
                 });
         });
 
@@ -84,7 +80,6 @@ describe('Home page', () => {
                 .find('a')
                 .then((usedOptions) => {
                     cy.wrap(usedOptions[0]).click();
-                    cy.go('back');
                 });
         });
 
@@ -93,7 +88,6 @@ describe('Home page', () => {
                 .find('a')
                 .then((usedOptions) => {
                     cy.wrap(usedOptions[1]).click();
-                    cy.go('back');
                 });
         });
 
@@ -124,7 +118,6 @@ describe('Home page', () => {
                 .find('a')
                 .then((supportOptions) => {
                     cy.wrap(supportOptions).click();
-                    cy.go('back');
                 });
         });
 
@@ -138,8 +131,25 @@ describe('Home page', () => {
             cy.navBarMenu('Servicio Técnico')
                 .find('button')
                 .click();
+        });
+    });
 
-            cy.go('back');
+    describe('Testing nav bar for Sucursales option', () => {
+        it('should be able to click on it', () => {
+            cy.navBarMenu('Sucursales')
+            .find('a')
+            .then((branchesOptions) => {
+                cy.wrap(branchesOptions).click();
+            });
+        });
+    });
+
+    describe('Testing nav bar for Accesorios y Repuestos option', () => {
+        it('should be able to click on it', () => {
+            cy.navBar('Accesorios y Repuestos')
+            .invoke('removeAttr', 'target')
+
+            cy.click();
         });
     });
 
